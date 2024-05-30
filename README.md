@@ -6,3 +6,4 @@ The aim of this programme is to help Kantele manufacturers in their work by maki
 The program is consist of 4 parts. Calcul on Preset Kantele, Charactweristic and caculation on one string, all informations about all the strings we put in the program and a graph wich shows the length and the number of strings.
 
 ## Preset Kantele :
+<p align="center"><img src="" width="600" /></p> 
