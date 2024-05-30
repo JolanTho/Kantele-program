@@ -32,3 +32,4 @@ You can choose to put the tension of the strings in Newton or choose the pourcen
 When you clic on the Submit button all the informations of the strings are print in the **"Information about strings"** part and the length of the strings are display on the graph.
 
 ## Characteristic of the string
+<p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/Pictures/PresetKantele.PNG" width="600" /></p> 
