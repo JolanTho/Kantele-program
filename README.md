@@ -13,19 +13,22 @@ This part already have all the information about strings save in the program. Th
 There are 4 Kantele in this program.
 
 The fisrt one have 5 strings :
-- Pitch: D4, E4, F4#, G4, A4
-- Diameter: 0.5mm, 0.45mm, 0.4mm, 0.4mm, 0.35mm
+- Pitch: D4, E4, F4#, G4, A4.
+- Diameter: 0.5mm, 0.45mm, 0.4mm, 0.4mm, 0.35mm.
 
 The second one is a 11 strings Kantele :
-- Pitch: A3,B3,C4#,D4,E4,F4#,G4,A4,B4,C5#,D5
-- Diameter: 0.55mm,0.5mm,0.45mm,0.45mm,0.4mm,0.4mm,0.35mm,0.35mm,0.3mm,0.3mm,0.3mm
+- Pitch: A3, B3, C4#, D4, E4, F4#, G4, A4, B4, C5#, D5.
+- Diameter: 0.55mm, 0.5mm, 0.45mm, 0.45mm, 0.4mm, 0.4mm, 0.35mm, 0.35mm, 0.3mm, 0.3mm, 0.3mm.
 
 The third one is a 18 strings Kantele :
-- Pitch: G3, A3, B3, C4, D4, E4, F4, G4, A4, B4, C5, D5, E5, F5, G5, A5, B5, C6
-- Diameter: 0.65mm, 0.55mm, 0.5mm, 0.5mm, 0.45mm, 0.45mm, 0.4mm, 0.4mm, 0.4mm, 0.35mm, 0.35mm, 0.35mm, 0.35mm, 0.3mm, 0.3mm, 0.25mm, 0.25mm, 0.25mm, 0.25mm
+- Pitch: G3, A3, B3, C4, D4, E4, F4, G4, A4, B4, C5, D5, E5, F5, G5, A5, B5, C6.
+- Diameter: 0.65mm, 0.55mm, 0.5mm, 0.5mm, 0.45mm, 0.45mm, 0.4mm, 0.4mm, 0.4mm, 0.35mm, 0.35mm, 0.35mm, 0.35mm, 0.3mm, 0.3mm, 0.25mm, 0.25mm, 0.25mm, 0.25mm.
 
 The last one is a 26 strings Kantele :
-- Pitch: C3, D3, E3, F3, G3, A3, B3, C4, D4, E4, F4, G4, A4, B4, C5, D5, E5, F5, G5, A5, B5, C6, D6, E6, F6, G6
-- Diameter: 0.9mm, 0.9mm, 0.75mm, 0.75mm, 0.75mm, 0.7mm, 0.7mm, 0.7mm, 0.65mm, 0.65mm, 0.65mm, 0.6mm, 0.6mm, 0.6mm, 0.55mm, 0.55mm, 0.55mm, 0.5mm, 0.5mm, 0.5mm, 0.45mm, 0.45mm, 0.45mm, 0.4mm, 0.4mm, 0.4mm
+- Pitch: C3, D3, E3, F3, G3, A3, B3, C4, D4, E4, F4, G4, A4, B4, C5, D5, E5, F5, G5, A5, B5, C6, D6, E6, F6, G6.
+- Diameter: 0.9mm, 0.9mm, 0.75mm, 0.75mm, 0.75mm, 0.7mm, 0.7mm, 0.7mm, 0.65mm, 0.65mm, 0.65mm, 0.6mm, 0.6mm, 0.6mm, 0.55mm, 0.55mm, 0.55mm, 0.5mm, 0.5mm, 0.5mm, 0.45mm, 0.45mm, 0.45mm, 0.4mm, 0.4mm, 0.4mm.
 
 You can choose to put the tension of the strings in Newton or choose the pourcentage of maximum tension.
+When you clic on the Submit button all the informations of the strings are print in the **"Information about strings"** part and the length of the strings are display on the graph.
+
+## Characteristic of the string
