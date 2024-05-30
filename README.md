@@ -32,4 +32,7 @@ You can choose to put the tension of the strings in Newton or choose the pourcen
 When you clic on the Submit button all the informations of the strings are print in the **"Information about strings"** part and the length of the strings are display on the graph.
 
 ## Characteristic of the string
-<p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/Pictures/PresetKantele.PNG" width="600" /></p> 
+<p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/Pictures/Characteristic%20of%20the%20string.PNG" width="600" /></p>
+
+In this part you can put every caracteristic of your string and calculate the tension, or the diameter or the length of your string.
+You can also choose if your string is wounden or not and put the note you want and the frequencie of the reference note.
