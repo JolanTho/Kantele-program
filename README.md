@@ -49,4 +49,4 @@ If you want to remove all the previous string, all you have to do is click on th
 
 ## Information about strings
 
-<p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/Pictures/Informatiom%20about%20strings.PNG" width="600" /></p>
+<p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/Pictures/Informatiom%20about%20strings.PNG" width="1000" /></p>
