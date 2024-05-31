@@ -14,7 +14,7 @@ The program is consist of 4 parts :
 
 This part already have all the information about strings save in the program. The pitch, the number of strings et the diameter of the strings are already in the porgram. You can choose the materials of the string, the tension of the strings and if you want, put the same diameter for all the strings.
 
-There are 4 Kantele in this program.
+### There are 4 Kantele in this program.
 
 The fisrt one have 5 strings :
 - Pitch: D4, E4, F4#, G4, A4.
