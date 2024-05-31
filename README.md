@@ -9,7 +9,7 @@ The program is consist of 4 parts :
 - Informations about strings
 - Display of length of strings
 
-## Preset Kantele :
+## Preset Kantele
 <p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/Pictures/PresetKantele.PNG" width="600" /></p> 
 
 This part already have all the information about strings save in the program. The pitch, the number of strings et the diameter of the strings are already in the porgram. You can choose the materials of the string, the tension of the strings and if you want, put the same diameter for all the strings.
