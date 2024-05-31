@@ -48,3 +48,5 @@ After enter all characteristic of your string you can clic the ***"Add String"**
 If you want to remove all the previous string, all you have to do is click on the ***"Clear#*** button and everything disapear.
 
 ## Information about strings
+
+<p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/Pictures/Characteristic%20of%20the%20string.PNG" width="600" /></p>
