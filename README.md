@@ -3,7 +3,11 @@ The aim of this programme is to help Kantele manufacturers in their work by maki
 
 # How it works ?
 
-The program is consist of 4 parts. Calcul on Preset Kantele, Charactweristic and caculation on one string, all informations about all the strings we put in the program and a graph wich shows the length and the number of strings.
+The program is consist of 4 parts : 
+- Calcul on Preset Kantele
+- Characteristic and caculation on one string
+- Informations about strings
+- Display of length of strings
 
 ## Preset Kantele :
 <p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/Pictures/PresetKantele.PNG" width="600" /></p> 
@@ -36,3 +40,9 @@ When you clic on the Submit button all the informations of the strings are print
 
 In this part you can put every caracteristic of your string and calculate the tension, or the diameter or the length of your string.
 You can also choose if your string is wounden or not and put the note you want and the frequencie of the reference note.
+You can choose between 5 materials : Iron, Brass, Nylon, Gut and Carbon.
+You can choose if you string is wound or not. It will change the formula to calculate the linear mass.
+**Be carefull** , if your string have non linear density this programme can't calculate its linear mass. 
+
+After enter all characteristic of your string you can clic the ***"Add String"*** button. This button take all informations about your string and stock it in table and display all informations in the ***"Information about strings"*** part. It also display le length of the string on the graph. 
+If you want to remove all the previous string, all you have to do is click on the ***"Clear#*** button and everything disapear.
