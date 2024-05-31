@@ -46,3 +46,5 @@ You can choose if you string is wound or not. It will change the formula to calc
 
 After enter all characteristic of your string you can clic the ***"Add String"*** button. This button take all informations about your string and stock it in table and display all informations in the ***"Information about strings"*** part. It also display le length of the string on the graph. 
 If you want to remove all the previous string, all you have to do is click on the ***"Clear#*** button and everything disapear.
+
+## Information about strings
