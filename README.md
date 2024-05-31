@@ -54,3 +54,5 @@ This part display all information of your string. You have the length in meter, 
 
 ## Display of length of strings
 <p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/Pictures/Display%20of%20strings.PNG" width="600" /></p>
+
+This part display the length of string to get an idea of the shape of the Kantele.
