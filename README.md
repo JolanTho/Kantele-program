@@ -48,5 +48,6 @@ After enter all characteristic of your string you can clic the ***"Add String"**
 If you want to remove all the previous string, all you have to do is click on the ***"Clear#*** button and everything disapear.
 
 ## Information about strings
-
 <p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/Pictures/Informatiom%20about%20strings.PNG" width="1000" /></p>
+
+This part display all information of your string. You have the length in meter, the tension in Newton, the Diameter in meter and the pitch of the string in Hz or it display the note.
