@@ -45,7 +45,7 @@ You can also choose if your string is wounden or not and put the note you want a
 You can choose between 5 materials : Iron, Brass, Nylon, Gut and Carbon.
 You can choose if you string is wound or not. It will change the formula to calculate the linear mass.
 
-> [!WARNING] 
+> [!CAUTION] 
 > If your string have non linear density this programme can't calculate its linear mass. 
 
 After enter all characteristic of your string you can clic the ***"Add String"*** button. This button take all informations about your string and stock it in table and display all informations in the ***"Information about strings"*** part. It also display le length of the string on the graph. 
