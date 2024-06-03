@@ -34,6 +34,7 @@ The last one is a 26 strings Kantele :
 - Diameter: 0.9mm, 0.9mm, 0.75mm, 0.75mm, 0.75mm, 0.7mm, 0.7mm, 0.7mm, 0.65mm, 0.65mm, 0.65mm, 0.6mm, 0.6mm, 0.6mm, 0.55mm, 0.55mm, 0.55mm, 0.5mm, 0.5mm, 0.5mm, 0.45mm, 0.45mm, 0.45mm, 0.4mm, 0.4mm, 0.4mm.
 
 Those Kantele are based on the kantele sale on the websitw Baltic psalteries [^2].
+
 You can choose to put the tension of the strings in Newton or choose the pourcentage of maximum tension.
 When you clic on the Submit button all the informations of the strings are print in the **"Information about strings"** part and the length of the strings are display on the graph.
 
