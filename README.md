@@ -34,7 +34,7 @@ The last one is a 26 strings Kantele :
 - Diameter: 0.9mm, 0.9mm, 0.75mm, 0.75mm, 0.75mm, 0.7mm, 0.7mm, 0.7mm, 0.65mm, 0.65mm, 0.65mm, 0.6mm, 0.6mm, 0.6mm, 0.55mm, 0.55mm, 0.55mm, 0.5mm, 0.5mm, 0.5mm, 0.45mm, 0.45mm, 0.45mm, 0.4mm, 0.4mm, 0.4mm.
 
 Those Kantele are based on the kantele sale on the websitw Baltic psalteries [^2].
-<p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/main/Kantele_program_Pictures/Pourcentage_of_tension.PNG" width="600" /></p> 
+<p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/main/Kantele_program_Pictures/Pourcentage_of_tension.PNG" width="400" /></p> 
 
 You can choose to put the tension of the strings in Newton or choose the pourcentage of maximum tension.
 When you select the option **"Pourcentage of max tension"** you must put a number between 0 and 100 in the box **"Tension"**. The programme will calculate the maximum tension the rope can be subjected to, based on the maximal strength of the material and the diameter of the rope. 
