@@ -42,7 +42,7 @@ It will then take the value of the percentage entered by the user and take this 
 > [!CAUTION]
 > Keep a value between 35% and 85% because under 35% the tension will too low, so it will be difficult to play with this string and above 85% the risk of breaking are high because with the wear, the maximum tension it can withstand decreases.
 
-When you clic on the Submit button all the informations of the strings are print in the **"Information about strings"** part and the length of the strings are display on the graph.
+When you clic on the ***"Submit"*** button all the informations of the strings are print in the **"Information about strings"** part and the length of the strings are display on the graph.
 
 ## Characteristic of the string
 <p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/main/Kantele_program_Pictures/Characteristic%20of%20the%20string.PNG" width="800" /></p>
