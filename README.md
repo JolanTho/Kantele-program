@@ -40,7 +40,7 @@ You can choose to put the tension of the strings in Newton or choose the pourcen
 When you select the option **"Pourcentage of max tension"** you must put a number between 0 and 100 in the box **"Tension"**. The programme will calculate the maximum tension the rope can be subjected to, based on the maximal strength of the material and the diameter of the rope. 
 It will then take the value of the percentage entered by the user and take this percentage of the value of the maximum tension. 
 > [!CAUTION]
-> Keep a value between 35% and 85% because under 35% the tension will too low, so it will be difficult to play with this string and above 85% the risk of breaking are high because with the wear
+> Keep a value between 35% and 85% because under 35% the tension will too low, so it will be difficult to play with this string and above 85% the risk of breaking are high because with the wear, the maximum tension it can withstand decreases.
 
 When you clic on the Submit button all the informations of the strings are print in the **"Information about strings"** part and the length of the strings are display on the graph.
 
