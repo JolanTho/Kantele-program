@@ -150,6 +150,7 @@ def Plot(StringNumber, Pitch, T, Diameter, Density): #Function for display all r
     PitchInf.insert("0.0",str(PrintPitchInf)) # Plot the Pitch of the strings.
     ax.bar(SpacingStrings,L) # plot of the graph.
     plt.Axes.plot
+    plt.ylabel("Length of the strings (m)")
     canvas.draw() # display of the graph in the window.
     canvas.get_tk_widget().pack() 
 
