@@ -37,6 +37,11 @@ Those Kantele are based on the kantele sale on the websitw Baltic psalteries [^2
 <p align="center"><img src="https://github.com/JolanTho/Kantele-program/blob/main/Kantele_program_Pictures/Pourcentage_of_tension.PNG" width="600" /></p> 
 
 You can choose to put the tension of the strings in Newton or choose the pourcentage of maximum tension.
+When you select the option **"Pourcentage of max tension"** you must put a number between 0 and 100 in the box **"Tension"**. The programme will calculate the maximum tension the rope can be subjected to, based on the maximal strength of the material and the diameter of the rope. 
+It will then take the value of the percentage entered by the user and take this percentage of the value of the maximum tension. 
+> [!CAUTION]
+> Keep a value between 35% and 85% because under 35% the tension will too low, so it will be difficult to play with this string and above 85% the risk of breaking are high because with the wear
+
 When you clic on the Submit button all the informations of the strings are print in the **"Information about strings"** part and the length of the strings are display on the graph.
 
 ## Characteristic of the string
