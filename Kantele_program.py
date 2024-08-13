@@ -21,15 +21,15 @@ def linear_mass(StringNumber,Diameter,Density): # Calcul of linear mass.
         Mlin.append(a)
     return Mlin
 
-def Linear_mass_woundString (Density):
+def Linear_mass_woundString (Density): # Calcul the linear mass of wound string
     H = float(DiaTorse.get())
     D = float(DiaCore.get())
     DensTorse = float(DensityTorse.get())
-    MlinTorse = (pow(H/2,2)-pow(D/2,2))*m.pi*0.785*Density
-    Mlinear = MlinTorse+pow(D/2,2)*m.pi*DensTorse
+    MlinTorse = (pow(H/2,2)-pow(D/2,2))*m.pi*0.785*Density #Calcul the linear mass of the twisted part of the string.
+    Mlinear = MlinTorse+pow(D/2,2)*m.pi*DensTorse #Calcul the linear mass of the string.
     return Mlinear
 
-def MaxTension(pourcentage, R, Diameter, StringNumber):
+def MaxTension(pourcentage, R, Diameter, StringNumber): # Calcul the maximum tension the string can withstand for preset Kantel.
     T=[]
     for i in range (StringNumber):
         T.append((pow(Diameter[i]/2,2)*m.pi*R*pourcentage)/100)
@@ -38,10 +38,10 @@ def MaxTension(pourcentage, R, Diameter, StringNumber):
 
 # Calcul of the length of strings.
 def Length(StringNumber,Pitch,T, Diameter,Density): # Function to calculate the
-    L = []                          #lenth of strings for preset Kantele.
+    L = []                          #length of strings for preset Kantele.
     Mlin = linear_mass(StringNumber, Diameter, Density)
     for j in range (StringNumber):
-        l = m.sqrt((T[j]*4.25)/(Mlin[j]*4*pow(Pitch[j],2)))
+        l = m.sqrt((T[j])/(Mlin[j]*4*pow(Pitch[j],2)))
         L.append(l)
     return L
 
@@ -53,7 +53,7 @@ def Tension_Calcul (L,Density,Pitch,Diameter):# Calcul of the tension of the str
     if optionTensChar.get()=="Pourcentage of max tension":
         T=MaxTension_Calcul(Diameter)
     else :
-        T = (Mlin*4*pow(L,2)*pow(Pitch,2))/4.25 # Calcul oh the tension.
+        T = (Mlin*4*pow(L,2)*pow(Pitch,2)) # Calcul oh the tension.
     T = round(T,2)
     return T
 
@@ -61,7 +61,7 @@ def Diameter_Calcul (L,T,Pitch,Density): # Calcul of the diameterof the string.
     if Wound.get()=="Yes":
         Mlin = Linear_mass_woundString(Density)
     else :
-        Mlin = (4.25*T)/(4*pow(L,2)*pow(Pitch,2)) # Calcul of tje linear mass.
+        Mlin = T/(4*pow(L,2)*pow(Pitch,2)) # Calcul of the linear mass.
     Diameter = m.sqrt((4*Mlin)/(m.pi*Density)) # Calcul of the diameter.
     return round(Diameter,4)
 
@@ -70,10 +70,10 @@ def Length_Calcul (T,Density,Pitch,Diameter): # Calcul of the length of 1 string
         Mlin = Linear_mass_woundString(Density)
     else :
         Mlin = m.pi*(pow(Diameter/2,2))*Density # Calcul of the linear mass.
-    L = m.sqrt((T*4.25)/(Mlin*4*pow(Pitch,2))) # formula of the length calcul.
+    L = m.sqrt((T)/(Mlin*4*pow(Pitch,2)))  # formula of the length calcul.
     return round(L,2)
 
-def MaxTension_Calcul(Diameter):
+def MaxTension_Calcul(Diameter): # Calcul of max tension for one string in the "Characteristic of the string" part.
     pourcentage = float(TensionEntry.get())  
     if MaterialPourcTens.get() == "Iron":
         R = 1750000000
@@ -84,8 +84,8 @@ def MaxTension_Calcul(Diameter):
     elif MaterialPourcTens.get() == "Gut":
         R = 230000000
     else :
-        R = 1000000000
-    T=(pow(Diameter/2,2)*m.pi*R*pourcentage)/100
+        R = 1000000000 # Not the good value
+    T=(pow(Diameter/2,2)*m.pi*R*pourcentage)/100 #Formula for the maximal tension.
     round(T,2)
     return T
 
@@ -108,51 +108,100 @@ def ChoiceMaterial ():
         R = 1000000000
     return Dens,R
 
-def Note_TO_Freq (note, noteRef):
+def Note_TO_Freq (note, noteRef): #Function to convert note to frequency.
     ListeNotes = ['A','A#','B','C','C#','D','D#','E','F','F#','G','G#']
-    noteRef = 440;
     if len(note)==3:
         octave = int(note[2])
         Keynumber = note[0:2]
-        Keynumber = ListeNotes.index(Keynumber)
+        Keynumber = ListeNotes.index(Keynumber) #Get the octave and the note that the user put in the text box.
     else :
         octave=int(note[1])
         Keynumber = note[0:1]
-        Keynumber = ListeNotes.index(Keynumber)
+        Keynumber = ListeNotes.index(Keynumber) #Get the octave and the note that the user put in the text box.
     if Keynumber < 3 :
-        Keynumber = Keynumber + 12 + ((octave-1)*12)+1
+        Keynumber = Keynumber + 12 + ((octave-1)*12)+1 #Calcul the number of cent between the actual note and the reference note.
     else :
         Keynumber = Keynumber + ((octave-1)*12)+1
-    Frequency  =  noteRef * m.pow(2, (Keynumber - 49)/12)
+    Frequency  =  noteRef * m.pow(2, (Keynumber - 49)/12) #Calcul the number of cent between the actual note and the reference note.
+    print(Frequency)
     return round(Frequency,2)
 
-def Plot(StringNumber, Pitch, T, Diameter, Density): #Function for display all result in the text box and the graph for preset Kantele.
-    plt.cla() # Clean the plot.
+def Choice_string_graph (R,Density,Diameter, L,Pitch): #Function wich display the second graph of "information about string"
+    alpha=[]
+    T=[]
+    Zo=[]
+    X=[]
+    NbTens=20
+    NbImp=4
+    for i in range(1,51):                # x-axis of the graph.
+        alpha.append(i*6)
+    for iTens in range(NbTens):
+        T.append([])
+        for iCal in range(len(alpha)):                          # Create the tension lines to be displayed on the figure.
+            T[iTens].append(m.sqrt(((iTens+1)*15)/(m.pow(alpha[iCal],2 )*Density*m.pi))*m.pow(10, 3))
+    for iImp in range(NbImp):
+        Zo.append([])
+        for iCalcul in range(len(alpha)):                       # Creat the impedance line to be displayed on the figure.
+            Zo[iImp].append(m.sqrt((1*(0.8*(iImp+1)))/(m.pi*Density*alpha[iCalcul]))*m.pow(10, 3))
+    BreakingPoint=m.sqrt((100*R)/(100*4*Density)) # Calcul of the breaking point of the string.
+    AlmostBreakingPoint=m.sqrt((85*R)/(100*4*Density)) # Calcul of the point in 85% of the max tension.
+    
+    for iX in range(len(Pitch)):
+        X.append(Pitch[iX]*L[iX])
+    for iDia in range(len(Diameter)):
+        Diameter[iDia]=Diameter[iDia]*m.pow(10,3)
+    ax2.scatter(X,Diameter,zorder=4) # Display of the point corresponding to the characteristics of the string.
+    
+    for iT in range(len(T)):
+        if 0.0658*(iT)>1:
+            R=1
+        else:
+            R=0.0658*iT
+        ax2.plot(alpha,T[iT],color=(R,0.0411*iT,0.0262*iT),zorder=1) # Display of the tension lines.
+        
+    for iZo in range(len(Zo)):
+        ax2.plot(alpha,Zo[iZo],'--',color='magenta',zorder=2) # Display of the impedance lines.
+        
+    ax2.plot([BreakingPoint,BreakingPoint],[0,3],color='black',zorder=3) # Display of the breaking point.
+    ax2.plot([AlmostBreakingPoint,AlmostBreakingPoint],[0,3],'--',color='black',zorder=4) # Display of 85% of the max tension.
+
+    plt.ylim(0,3)
+    plt.title("Kantele's strings")
+    plt.ylabel('Diameter(mm)')
+    plt.xlabel('Length (m) x frequencies (Hz)')
+    
+    canvas2.draw()
+    canvas2.get_tk_widget().pack()
+
+def Plot(StringNumber, Pitch, T, Diameter, Density,Note,R): #Function for display all result in the text box and the graph for preset Kantele.
+    ax.cla() # Clean the plot.
+    ax2.cla()
     L=Length(StringNumber, Pitch, T, Diameter, Density) #Get a table of alle the length of strings.
-    PrintResult="" #Create string variable tu put the result of the length calcul.
-    PrintTensionInf="" #Create string variable tu put the result of the tension calcul.
-    PrintDiameterInf="" #Create string variable tu put the result of the diameter calcul.
-    PrintPitchInf="" #Create string variable tu put the result of the pitch calcul.
-    SpacingStrings = [] # Create a table for create the x axis of the plot.
-    for k in range(StringNumber): # print all the result in the strings variable.
+    PrintResult=""                                      #Create string variable tu put the result of the length calcul.
+    PrintTensionInf=""                                  #Create string variable tu put the result of the tension calcul.
+    PrintDiameterInf=""                                 #Create string variable tu put the result of the diameter calcul.
+    PrintPitchInf=""                                    #Create string variable tu put the result of the pitch calcul.
+    SpacingStrings = []                                 #Create a table for create the x axis of the plot.
+    for k in range(StringNumber):                       # print all the result in the strings variable.
         SpacingStrings.append(k*1.9)
         PrintResult = PrintResult +"String"+ str(k+1)+" : "+str(round(L[k],2))+"m ; "
         PrintTensionInf = PrintTensionInf +"String"+ str(k+1)+" : "+str(round(T[k],2))+"N ; "
         PrintDiameterInf = PrintDiameterInf +"String"+ str(k+1)+" : "+str(Diameter[k])+"m ; "
-        PrintPitchInf = PrintPitchInf +"String"+ str(k+1)+" : "+str(Pitch[k])+"Hz ; "
-    LengthInf.delete("0.0","end") # Clear text box.
-    TensionInf.delete("0.0","end")# Clear text box.
-    DiameterInf.delete("0.0","end")# Clear text box.
-    PitchInf.delete("0.0","end")# Clear text box.
-    LengthInf.insert("0.0",str(PrintResult)) # Plot the lengths of the strings.
-    TensionInf.insert("0.0",str(PrintTensionInf)) # Plot the tensions of the strings.
-    DiameterInf.insert("0.0",str(PrintDiameterInf)) # Plot the diameter of the strings.
-    PitchInf.insert("0.0",str(PrintPitchInf)) # Plot the Pitch of the strings.
-    ax.bar(SpacingStrings,L) # plot of the graph.
+        PrintPitchInf = PrintPitchInf +"String"+ str(k+1)+" : "+Note[k]+" ; "
+    LengthInf.delete("0.0","end")                       # Clear text box.
+    TensionInf.delete("0.0","end")                      #Clear text box.
+    DiameterInf.delete("0.0","end")                     #Clear ext box.
+    PitchInf.delete("0.0","end")                        #Clear text box.
+    LengthInf.insert("0.0",str(PrintResult))            # Plot the lengths of the strings.
+    TensionInf.insert("0.0",str(PrintTensionInf))       # Plot the tensions of the strings.
+    DiameterInf.insert("0.0",str(PrintDiameterInf))     # Plot the diameter of the strings.
+    PitchInf.insert("0.0",str(PrintPitchInf))           # Plot the Pitch of the strings.
+    ax.bar(SpacingStrings,L)                            # plot of the graph.
     plt.Axes.plot
     plt.ylabel("Length of the strings (m)")
-    canvas.draw() # display of the graph in the window.
+    canvas.draw()                                       # display of the graph in the window.
     canvas.get_tk_widget().pack() 
+    Choice_string_graph (R,Density,Diameter, L,Pitch)
 
     
 top_frame = ctk.CTkFrame(master=app, fg_color="black") # creation of the frame to seat all the widgets.
@@ -189,7 +238,7 @@ def optionTens_callback(choice):
 EntryLabel = ctk.CTkLabel(master=frame1, text="Tensions of the strings", text_color="#A987FF")
 EntryLabel.pack(pady=3)
 
-optionTens = ctk.CTkOptionMenu(master = frame1, values=["Tension", "Pourcentage of max tension"], command=optionTens_callback, fg_color="#8454FF",button_color ="#723BFF",  button_hover_color="#723BFF")
+optionTens = ctk.CTkOptionMenu(master = frame1, values=["Tension", "Percentage of max tension"], command=optionTens_callback, fg_color="#8454FF",button_color ="#723BFF",  button_hover_color="#723BFF")
 optionTens.set("Tension")
 optionTens.pack(pady=3)
 
@@ -223,21 +272,25 @@ def Validate(): # Get the result of the combo-box of the nuöber et the materisl
     NbStr = NbStrings.get()
     if NbStr == "5 strings":
         Pitch = [293.665,329.628,369.994,391.995,440] # Pitch of string.
+        Note = ["D4", "E4", "F#4", "G4", "A4"]
         Diameter = [0.0005,0.00045,0.0004,0.0004,0.00035] # Diameter of strings.
         StringNumber = 5;
     if NbStr == "11 strings":
         Pitch = [220,246.94,277.183,293.665,329.628,369.994,391.995,440,493.883,554.365,587.33] # Pitch of string.
+        Note = ["A3","B3","C#4","D4", "E4", "F#4", "G4", "A4","B4","C#5","D5"]
         Diameter = [0.00055,0.0005,0.00045,0.00045,0.0004,0.0004,0.00035,0.00035,0.0003,0.0003,0.0003] # Diameter of strings.
         StringNumber = 11;
     if NbStr == "18 strings":
         Pitch = [196,220,246.94,261.53,293.665,329.628,349.23,391.995,440,493.883,523.25,587.33,659.25,698.46,783.99,880,987.77,1046.5] # Diameter of strings.
+        Note = ["G3","A3","B3","C4","D4", "E4", "F4", "G4", "A4","B4","C5","D5","E5","F5","G5","A5","B5","C6"]
         Diameter = [0.00065,0.00055,0.0005,0.00045,0.00045,0.0004,0.0004,0.0004,0.00035,0.00035,0.00035,0.00035,0.0003,0.0003,0.00025,0.00025,0.00025,0.00025] # Diameter of strings
         StringNumber = 18
     if NbStr == "26 strings":
        Pitch = [130.81,146.83,164.81,174.61,196,220,246.94,261.63,293.665,329.628,349.23,391.995,440,493.883,523.33,587.33,659.25,698.46,783.99,880,987.77,1046.5,1174.66,1318.51,1396.91,1567.98] # Frenquencies of all strings
+       Note = ["C3","D3","E3","F3","G3","A3","B3","C4","D4", "E4", "F4", "G4", "A4","B4","C5","D5","E5","F5","G5","A5","B5","C6","D6","E6","F6","G6"]
        Diameter = [0.0009,0.0009,0.00075,0.00075,0.00075,0.0007,0.0007,0.0007,0.00065,0.00065,0.00065,0.0006,0.0006,0.0006,0.00055,0.00055,0.00055,0.0005,0.0005,0.0005,0.00045,0.00045,0.00045,0.0004,0.0004,0.0004] # Diameter of each strings
        StringNumber = 26
-    if optionTens.get()=="Pourcentage of max tension":
+    if optionTens.get()=="Percentage of max tension":
         pourcentage = float(entry.get())
         T = MaxTension(pourcentage, R, Diameter, StringNumber)
     else :
@@ -245,11 +298,11 @@ def Validate(): # Get the result of the combo-box of the nuöber et the materisl
         for i in range(StringNumber):
             T.append(int(entry.get()))
     if check_var.get()=="Yes":
-        WantDia = float(SameDia.get())
+        WantDia = float(SameDia.get()) # Get the value of the desired diameter.
         Diameter = []
         for i in range(StringNumber):
             Diameter.append(WantDia)
-    Plot(StringNumber, Pitch, T, Diameter, Dens) #Plot the result.
+    Plot(StringNumber, Pitch, T, Diameter, Dens, Note,R) #Plot the result.
 
 Submit = ctk.CTkButton(master=frame1, text="Submit", command=Validate, fg_color="#8454FF", hover_color="#723BFF")
 Submit.pack(pady=10)
@@ -271,10 +324,10 @@ SameDia = ctk.CTkEntry(master=frame1, placeholder_text="Wanted diameter")
 frame2 = ctk.CTkFrame(master=top_frame, fg_color="black")
 frame2.pack(side="left", fill = "both", expand=True)
 
-framechar = ctk.CTkFrame(master=frame2, fg_color="black")
+framechar = ctk.CTkFrame(master=frame2, fg_color="black") # Where the part "Characteristic of one string" is display.
 framechar.pack(side="left", fill = "both", expand=True)
 
-CharLabel = ctk.CTkLabel(master=framechar, text="Characteristic of the string", font=("Arial" ,20), text_color="#87A1FF")
+CharLabel = ctk.CTkLabel(master=framechar, text="Characteristic of one string", font=("Arial" ,20), text_color="#87A1FF")
 CharLabel.pack()
 
 LengthLabel = ctk.CTkLabel(master=framechar, text="Length (m)", text_color="#87A1FF")
@@ -290,7 +343,7 @@ DiameterEntry.pack(padx = 5)
 TensionLabel = ctk.CTkLabel(master=framechar, text="Tension", text_color="#87A1FF")
 TensionLabel.pack(pady=3, padx = 5)
 
-optionTensChar = ctk.CTkOptionMenu(master = framechar, values=["Tension", "Pourcentage of max tension"], fg_color="#5479FF",button_color ="#3B65FF",  button_hover_color="#3B65FF")
+optionTensChar = ctk.CTkOptionMenu(master = framechar, values=["Tension", "Percentage of max tension"], fg_color="#5479FF",button_color ="#3B65FF",  button_hover_color="#3B65FF")
 optionTensChar.set("Tension")
 optionTensChar.pack(pady=3)
 
@@ -304,12 +357,7 @@ NoteRefEntry.pack(padx=5)
 PitchEntry = ctk.CTkEntry(master=framechar, placeholder_text="Note")
 PitchEntry.pack(padx = 5)
 
-"""
-DensityLabel = ctk.CTkLabel(master=framechar, text="Density", text_color="#87A1FF")
-DensityLabel.pack(pady=3, padx = 5)
-DensityEntry = ctk.CTkEntry(master=framechar, placeholder_text="Density")
-DensityEntry.pack( padx = 5)
-"""
+
 MaterialCharLabel = ctk.CTkLabel(master=framechar, text="Choice of material", text_color="#87A1FF")
 MaterialCharLabel.pack(pady=3)
 MaterialChar = ctk.CTkComboBox(master=framechar, values=["Iron","Brass","Nylon", "Gut", "Carbon"])
@@ -318,19 +366,25 @@ MaterialChar.pack()
 def Clear(): # Supress all data of strings.
     global LS
     global n
+    global f
+    global Dia
+    Dia=[]
+    f=[]
     LS=[]
     n=0
     LengthInf.delete("0.0","end")
     TensionInf.delete("0.0","end")
     DiameterInf.delete("0.0","end")
     PitchInf.delete("0.0","end")
+    ax.cla()
+    ax2.cla()
 
 Clear = ctk.CTkButton(master=framechar, text="Clear", command=Clear, fg_color="#5479FF", hover_color="#3B65FF", height=50, width=200)
 Clear.pack(pady=10)
 
-def Wound_box():
+def Wound_box():   # Check if the wound string is selected or not.
     print("checkbox toggled, current value:", Wound.get())
-    if Wound.get()=="Yes":
+    if Wound.get()=="Yes": #Display box to put the value of the diameter of the core and the torse of the string.
         DiaCore.pack(pady= 5)
         DensityTorse.pack(pady= 5)
         DiaTorse.pack(pady= 5)
@@ -347,10 +401,10 @@ DiaCore = ctk.CTkEntry(master=framechar, placeholder_text="Core Wanted diameter"
 DensityTorse = ctk.CTkEntry(master=framechar, placeholder_text="Torse density")
 DiaTorse = ctk.CTkEntry(master=framechar, placeholder_text="Torse Wanted diameter")
 
-frameCal = ctk.CTkFrame(master=frame2, fg_color="black")
+frameCal = ctk.CTkFrame(master=frame2, fg_color="black") #Where the part "Calculation of the unknowas parameters" is display.
 frameCal.pack(side="left", fill = "both", expand=True)
 
-CalLabel = ctk.CTkLabel(master=frameCal, text="Calcul", font=("Arial" ,20), text_color="#87A1FF")
+CalLabel = ctk.CTkLabel(master=frameCal, text="Calculation of the unknows parameters", font=("Arial" ,20), text_color="#87A1FF")
 CalLabel.pack()
 
 TensionCalLabel = ctk.CTkLabel(master=frameCal, text="Tension", text_color="#87A1FF")
@@ -426,11 +480,12 @@ LS=[]
 Dia = []
 Tens = []
 Freq = []
+f=[]
 
-def AddStringCal(): # Add all the paraöeter of a string in different table.
+def AddStringCal(): # Add all the parameter of a string in different table and display the characteristics.
     print("button pressed")
     plt.cla()
-    global n
+    global n 
     n=n+1
     Length=LengthEntry.get()
     Diameter = DiameterEntry.get()
@@ -479,10 +534,17 @@ def AddStringCal(): # Add all the paraöeter of a string in different table.
     TensionInf.insert("0.0",str(ResultTens))
     DiameterInf.insert("0.0",str(ResultDia))
     PitchInf.insert("0.0",str(ResultPitch))
-    ax.bar(SpacingString,LS)
+    ax.bar(SpacingString,LS,color='blue')
     plt.Axes.plot
     canvas.draw()
     canvas.get_tk_widget().pack()
+    Frequency = PitchEntry.get()
+    Refnote = int(NoteRefEntry.get())
+    f.append(Note_TO_Freq(Frequency, Refnote))
+    (D,R) = ChoiceMaterial()
+    Choice_string_graph(R, D, Dia, LS, f)
+   
+    
     
     
 AddString = ctk.CTkButton(master=frameCal, text="Add String", command=AddStringCal, fg_color="#5479FF", hover_color="#3B65FF", height=50, width=200)
@@ -549,7 +611,8 @@ Titlegraph = ctk.CTkLabel(master=framePlot, text="Display of length of strings",
 Titlegraph.pack(pady=10)
 fig, ax = plt.subplots()
 canvas = FigureCanvasTkAgg(fig,master=framePlot)
-
+fig2, ax2 = plt.subplots()
+canvas2 = FigureCanvasTkAgg(fig2,master=framePlot)
 
 
 
