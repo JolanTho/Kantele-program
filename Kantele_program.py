@@ -141,7 +141,7 @@ def Choice_string_graph (R,Density,Diameter, L,Pitch): #Function wich display th
             T[iTens].append(m.sqrt(((iTens+1)*15)/(m.pow(alpha[iCal],2 )*Density*m.pi))*m.pow(10, 3))
     for iImp in range(NbImp):
         Zo.append([])
-        for iCalcul in range(len(alpha)):                       # Creat the impedance line to be displayed on the figure.
+        for iCalcul in range(len(alpha)):                       # Create the impedance line to be displayed on the figure.
             Zo[iImp].append(m.sqrt((1*(0.8*(iImp+1)))/(m.pi*Density*alpha[iCalcul]))*m.pow(10, 3))
     BreakingPoint=m.sqrt((100*R)/(100*4*Density)) # Calcul of the breaking point of the string.
     AlmostBreakingPoint=m.sqrt((85*R)/(100*4*Density)) # Calcul of the point in 85% of the max tension.
